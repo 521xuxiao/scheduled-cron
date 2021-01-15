@@ -13,7 +13,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>scheduled</name>
     <description>测试动态定时器</description>
-
     <properties>
         <java.version>1.8</java.version>
     </properties>
