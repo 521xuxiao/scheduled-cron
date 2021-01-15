@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scheduled.dao.Dao">
+    <select id="queryLampTime" resultType="map" parameterType="map">
+        select cron from task_cron GROUP BY cron
+    </select>
+
+    <insert id="addTaskTime" parameterType="map">
+        insert into task_cron (order_name, order_id, cron, STATUS) values (#{orderName}, #{orderId}, #{cron}, 1)
+    </insert>
+
+    <delete id="deleteTaskTime" parameterType="map">
+        delete from task_cron where id in
+        <foreach collection="list" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="queryTaskTime" parameterType="map" resultType="map">
+        select * from task_cron where
+        <foreach collection="list1" item="item" separator="or">
+            id = #{item}
+        </foreach>
+    </select>
+</mapper>
