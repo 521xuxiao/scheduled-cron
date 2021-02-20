@@ -16,10 +16,11 @@ public class MyLampRunnable implements Runnable{
     }
 
     /**
-     * 开启线程, 有定时器就开始走此方法
+     * 开启线程, 有定时器就开始走此方法, 根据上面的time这个cron定时器表达式,查出需要控制的设备,进行控制...
      */
     @Override
     public void run() {
+        System.err.println(time);
         System.err.println("定时器每个一秒执行一次");
     }
 }
